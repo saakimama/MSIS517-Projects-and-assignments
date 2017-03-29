@@ -23,6 +23,9 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+.fr {font-size:15pt}
+
+.high2 {background-color:orange}
 
 #text { padding:0 16px;
 text-align:center;
@@ -40,11 +43,13 @@ font-family: "Times New Roman", Serif;}
 text-align:center;
 font-family: "Times New Roman", Serif;}
 
+.high {background: yellow}
+
 p.verdana {
     font-family: Verdana, Times, serif;
 }
 
-html {background-color: #AC9F3D}
+html {background-color: #AC9F3D} 
 
 ul.topnav {
     list-style-type: none;
