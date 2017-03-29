@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Saaketh Balusu</title>
+    <meta charset="utf-8">
+    <meta name="description" content="This webpage holds my professional experiences and education background">
+    <meta name="keywords" content="Resume,Saaketh Balusu,Mainframe,Web technologies,SQL,C,C++">
+    <meta name="author" content="Saaketh Balusu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="http://cdn1.storyfa.com/favicon/3/7/7/d3d3LnNreXNwb3J0cy5jb20.ico"
+    type="image/gif" sizes="16x16">
+    <!-- Adding and external sytlesheet -->
+    <link rel="stylesheet" href="styler.css">
+    <!-- Google analytics tracking code -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i[
+                'GoogleAnalyticsObject'
+            ] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || [])
+                .push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(
+                    o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(
+                a, m)
+        })(window, document, 'script',
+            'https://www.google-analytics.com/analytics.js',
+            'ga');
+
+        ga('create', 'UA-96353308-1',
+            'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Adding Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <!-- This is the navigation bar for the site -->
+    <div class="col-12">
+        <ul class="topnav">
+            <li><a href="index.html">Home</a>
+            </li>
+            <li><a href="Academics.html">Academics</a>
+            </li>
+            <li><a href="experience.html">Skills</a>
+            </li>
+            <li><a class="active" href="Contact.html">Contact</a>
+            </li>
+            <li class="right"><a href="Download.html">Download Resume</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-4" style="text-align:center;">
+        <p style="font-size:25pt">Fill in
+            <br> your detials to
+            <br> contact me</p>
+    </div>
+    <div class="col-6" style="border: 2px solid black; text-align:left">
+    <!-- Creating form to collect details -->
+        <form name="contactform" onsubmit="return validateform()"
+        action="https://formspree.io/saakethsagar@gmail.com"
+        method="post">
+            <p class="fr">First name &nbsp;&nbsp;
+                <input id="fn" type="text" name="Firstname"
+                value="" placeholder="First name"
+                style="width:130pt; height:30px"> &nbsp;Last name &nbsp;&nbsp;
+                <input id="ln" type="text" name="Lastname"
+                value="" placeholder="Last name"
+                style="width:130pt; height:30px">
+            </p>
+            <p class="fr">
+                Email &nbsp;
+                <input id="em" type="email" name="Email"
+                value="" placeholder="Youremail@abc.com"
+                style="width:390pt; height:30px">
+            </p>
+            <p class="fr">
+                Reason for contact &nbsp; &nbsp;
+                <input id="rc" type="text" name="Message" list="json-datalist"
+             placeholder="Reason for contact"
+                style="width:290pt; height:30px">
+                <datalist id="json-datalist">
+                </datalist>
+            </p>
+            <p style="text-align:center;">
+                <input type="image" alt="Submit"
+                src='http://www.clker.com/cliparts/2/G/4/v/K/E/submit-hi.png'
+                width="100" height="48">
+            </p>
+        </form>
+        <!-- Validation function for the above form input -->
+        <script>
+            function validateform() {
+            	// Parsing the collected data for each text field
+                var f = document.forms[
+                    "contactform"
+                ]["Firstname"].value;
+                var l = document.forms[
+                    "contactform"
+                ]["Lastname"].value;
+                var m = document.forms[
+                    'contactform'
+                ]['Email'].value;
+                var r = document.forms[
+                    'contactform'
+                ]['Message'].value;
+                // Verfying for "Null" space and highlighting the textfield incase of Null entries
+                if (f == "") {
+                    $("#fn").addClass(
+                        "high2"
+                    );
+                }
+                if (f != "") {
+                    $("#fn").removeClass(
+                        "high2"
+                    );
+                }
+                if (l == "") {
+                    $("#ln").addClass(
+                        "high2"
+                    );
+                }
+                if (l != "") {
+                    $("#ln").removeClass(
+                        "high2"
+                    );
+                }
+                if (m == "" || m ==
+                    "michael.gildein1@marist.edu"
+                ) {
+                    $("#em").addClass(
+                        "high2"
+                    );
+                }
+                if (m != "" && m !=
+                    "michael.gildein1@marist.edu"
+                ) {
+                    $("#em").removeClass(
+                        "high2"
+                    );
+                }
+                if (r == "") {
+                    $("#rc").addClass(
+                        "high2"
+                    );
+                }
+                if (r != "") {
+                    $("#rc").removeClass(
+                        "high2"
+                    );
+                }
+                if (f == "" || l ==
+                    "" || m == "" ||
+                    r == "" || m ==
+                    "michael.gildein1@marist.edu"
+                ) {
+                    alert(
+                        "Some values are not entered or might be incorrect. Please check and try again"
+                    );
+                    return false;
+                }
+            }
+        </script>
+        <!-- AJAX requesting function for a dropdown field using JSON array elements -->
+        <script>
+        var dataList = document.getElementById('json-datalist');
+        var input = document.getElementById('rc');
+        $.get('list.json').done(function (data) {
+        	                                      data.forEach(function(item) {
+        	                                      var option = document.createElement('option');
+        	                                      option.value = item;
+        	                                      dataList.appendChild(option);
+        	                                      });
+                                     		});
+         
+        </script>
+    </div>
+</body>
+
+</html>

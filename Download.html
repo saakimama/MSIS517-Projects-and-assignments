@@ -37,6 +37,30 @@
             'auto');
         ga('send', 'pageview');
     </script>
+    <style>
+        #drag {
+            width: 200px;
+            height: 50px;
+            background: #ccc;
+        }
+        #drop {
+            position: absolute;
+            left: 700px;
+            top: 150px;
+            width: 300px;
+            height: 125px;
+            background: yellow;
+            color: #fff;
+            padding: 10px;
+        }
+    </style>
+    <!-- Adding Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous">
+    </script>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -45,29 +69,39 @@
         <ul class="topnav">
             <li><a href="index.html">Home</a>
             </li>
-            <li><a class="active" href="Academics.html">Academics</a>
+            <li><a href="Academics.html">Academics</a>
             </li>
             <li><a href="experience.html">Skills</a>
             </li>
             <li><a href="Contact.html">Contact</a>
             </li>
-            <li class="right"><a href="Download.html">Download Resume</a>
+            <li class="right"><a class="active" href="Download.html">Download Resume</a>
             </li>
         </ul>
     </div>
-    <div class="col-12" id="text" style="border-top:solid grey 1px">
-        <h3>Graduate level</h3>
-        <p style="text-align:left">Master's in Information systems from
-            Marist college; graduated in
-            Spring 2016 </p>
+    <div class="row"></div>
+    <br></br>
+    <a id="download" href="https://drive.google.com/open?id=0B8j47pq5_vEjQl9IeVpNNFk2NmM"
+    style="background:red;">Click to download</a>
+    <script>
+        $("#download").hide()
+    </script>
+    <div id="drag" style="text-align:center">
+        Drag me over to Yellow zone to get the download
+        link
     </div>
-    <div class="col-12" id="text1" style="border-top:solid grey 1px; border-bottom:solid grey 1px">
-        <h3>Undergraduate level</h3>
-        <p style="text-align:left">Bachelor's degree in Electronics
-            and communication from GITAM
-            university; graduated in Fall
-            2013 </p>
-    </div>
+    <div id="drop">Drop it here</div>
+    <script>
+        $("#drag").draggable();
+        $("#drop").droppable({
+            drop: function() {
+                $(
+                    "#download"
+                ).toggle();
+            }
+        });
+    </script>
+
 </body>
 
 </html>
