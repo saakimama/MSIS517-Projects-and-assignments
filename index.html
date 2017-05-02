@@ -8,13 +8,163 @@
     <meta name="keywords" content="Resume,Saaketh Balusu,Mainframe,Web technologies,SQL,C,C++">
     <meta name="author" content="Saaketh Balusu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="http://cdn1.storyfa.com/favicon/3/7/7/d3d3LnNreXNwb3J0cy5jb20.ico" type="image/gif" sizes="16x16">
+    <link rel="icon" href="http://cdn1.storyfa.com/favicon/3/7/7/d3d3LnNreXNwb3J0cy5jb20.ico"
+    type="image/gif" sizes="16x16">
     <!-- Adding and external sytlesheet -->
     <link rel="stylesheet" href="styler.css">
     <!-- Adding an external Javascrit -->
     <script src="mobile.js"></script>
     <!-- Adding Jquery CDN -->
-    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    </script>
+
+</head>
+<!-- Checking for any previous cookies when the body of the documents completes loading -->
+
+<body onload="checkCookie()">
+    <!-- This is the navigation bar for the site -->
+    <div class="col-12">
+        <ul class="topnav">
+            <li><a class="active" href="MyResume.html">Home</a>
+            </li>
+            <li><a href="Academics.html">Academics</a>
+            </li>
+            <li><a href="experience.html">Skills</a>
+            </li>
+            <li><a href="Contact.html">Contact</a>
+            </li>
+            <li class="right"><a href="Download.html">Download Resume</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-6">
+        <p id="para-html"><b>Click </b> here to see <i>the raw HTML code</i>
+        </p>
+    </div>
+    <div class="col-6">
+        <p>Select your choice of color for the
+            text &nbsp; &nbsp;
+            <input onchange="colr()" id="clr" type="color">
+        </p>
+    </div>
+    <div class="col-9" id="text">
+        <h2 id="heading">Welcome!</h2>
+        <h3>My name is Saaketh Balusu</h3>
+        <p class="verdana">This webpage holds information of
+            my professional skills and academic
+            credentials.
+        </p>
+        <p>Email: <a href="mailto:saaketh.balusu@gmail.com?Subject=Hello%20there">saaketh.balusu@gmail.com</a>
+        </p>
+        <p id="mobile">Click on Mobile button to get the
+            number
+        </p>
+        <!-- Using Jquery to change the innerHTML content -->
+        <button type="button" onclick='$("#mobile").text("(551) 226-3281")'>Mobile</button>
+    </div>
+    <div class="col-3">
+        <img id="img" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/043/3e3/11b4569.jpg"
+        alt="Saaketh Balusu" width=130pt height=130pt>
+    </div>
+    <div class="row"></div>
+    <!-- Jquery for each and toggle functions -->
+    <div class="col-6" id="hg">
+        <p><a><b>Hover over here to highlight the contents of this site</b></a>
+        </p>
+        <ul>
+            <li>Academics</li>
+            <li>Experience</li>
+            <li>Resume</li>
+        </ul>
+    </div>
+    <div class="col-5" style="text-align:right;">
+        <!-- Jquery animate and click functions -->
+        <p id="animate">Click on me for an image animation</p>
+        <!-- Sample javascript alert function -->
+        <p>This field is to create an alert:</p>
+        <button onmouseover="myFunction()">Hover over me</button>
+    </div>
+     <script>
+            function myFunction() {
+                alert(
+                    "Knock Knock!"
+                );
+            }
+     </script>
+     <script>
+            $("#animate").click(
+                function() {
+                    $("#img").animate({
+                            opacity: 0.25
+                        }, 3000,
+                        function() {
+                            $(
+                                    "#animate"
+                                )
+                                .text(
+                                    "Animation complete"
+                                )
+                        });
+                });
+      </script>
+        <!-- Cookie data to store the Color choice of user -->
+    <script>
+        function setCookie(cname,
+            cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() +
+                (exdays * 24 *
+                    60 * 60 *
+                    1000));
+            var expires =
+                "expires=" + d.toGMTString();
+            document.cookie = cname +
+                "=" + cvalue + ";" +
+                expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie =
+                decodeURIComponent(
+                    document.cookie
+                );
+            var ca = decodedCookie.split(
+                ';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) ==
+                    ' ') {
+                    c = c.substring(
+                        1);
+                }
+                if (c.indexOf(name) ==
+                    0) {
+                    return c.substring(
+                        name.length,
+                        c.length
+                    );
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var user = getCookie(
+                "username");
+            if (user != "") {
+                $("p").css("color",
+                    user);
+                $("#clr").val(user);
+                alert(
+                    "Welcome back! We remeber your favorite color, it is " +
+                    user);
+            } else {
+                alert(
+                    "This is your first visit to my site. Please select a color of your choice"
+                );
+            }
+        }
     </script>
     <!-- Google analytics tracking code -->
     <script>
@@ -41,57 +191,16 @@
             'auto');
         ga('send', 'pageview');
     </script>
-</head>
-
-<body>
-    <!-- This is the navigation bar for the site -->
-    <div class="col-12">
-        <ul class="topnav">
-            <li><a class="active" href="MyResume.html">Home</a>
-            </li>
-            <li><a href="Academics.html">Academics</a>
-            </li>
-            <li><a href="experience.html">Skills</a>
-            </li>
-            <li><a href="Contact.html">Contact</a>
-            </li>
-            <li class="right"><a href="Download.html">Download Resume</a>
-            </li>
-        </ul>
-    </div>
-    <p><b>Click </b> here to see <i>the raw HTML code</i>
-    </p>
     <script>
-        $("p").click(function() {
-            $(this).text($(this)
-                .html());
-        });
+            $("#para-html").click(function() {
+                $(this).text($(
+                        this
+                    )
+                    .html()
+                );
+            });
     </script>
-    <div class="col-9" id="text">
-        <h2 id="heading">Welcome!</h2>
-        <h3>My name is Saaketh Balusu</h3>
-        <p class="verdana">This webpage holds information of my professional skills and academic credentials.
-        </p>
-        <p>Email: <a href="mailto:saaketh.balusu@gmail.com?Subject=Hello%20there">saaketh.balusu@gmail.com</a>
-        </p>
-        <p id="mobile">Click on Mobile button to get the number
-        </p>
-        <!-- Using Jquery to change the innerHTML content -->
-        <button type="button" onclick='$("#mobile").text("(551) 226-3281")'>Mobile</button>
-    </div>
-    <div class="col-3">
-        <img id="img" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/043/3e3/11b4569.jpg" alt="Saaketh Balusu">
-    </div>
-    <div class="row"></div>
-    <!-- Jquery for each and toggle functions -->
-    <div class="col-6" id="hg">
-        <a id="hg"><b>Hover over here to highlight the contents of this site</b></a>
-        <ul>
-            <li>Academics</li>
-            <li>Experience</li>
-            <li>Resume</li>
-        </ul>
-        <script>
+    <script>
             $("#hg").hover(function highlight() {
                 $("li").each(
                     function() {
@@ -103,38 +212,22 @@
                             );
                     });
             });
-        </script>
-    </div>
-    <div class="col-5" style="text-align:right;">
-        <!-- Jquery animate and click functions -->
-        <p id="animate">Click on me for an image animation</p>
-        <script>
-            $("#animate").click(
-                function() {
-                    $("#img").animate({
-                            opacity: 0.25
-                        }, 3000,
-                        function() {
-                            $(
-                                    "#animate"
-                                )
-                                .text(
-                                    "Animation complete"
-                                )
-                        });
-                });
-        </script>
-        <!-- Sample javascript alert function -->
-        <p>This field is to create an alert:</p>
-        <button onmouseover="myFunction()">Hover over me</button>
-        <script>
-            function myFunction() {
+    </script>
+      <!-- This function is to change the color of the text based on choice -->
+    <script>
+            function colr() {
+                var color = $(
+                    "#clr").val();
+                $("p").css("color",
+                    color);
                 alert(
-                    "Knock Knock!"
-                );
+                    "You've selected a color in it's hex value as " +
+                    color);
+                setCookie(
+                    "username",
+                    color, 10);
             }
-        </script>
-    </div>
+    </script>
 </body>
 
 </html>

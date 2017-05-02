@@ -68,8 +68,7 @@
     <div class="col-6" style="border: 2px solid black; text-align:left">
     <!-- Creating form to collect details -->
         <form name="contactform" onsubmit="return validateform()"
-        action="https://formspree.io/saakethsagar@gmail.com"
-        method="post">
+        action="contact.php" method="post">
             <p class="fr">First name &nbsp;&nbsp;
                 <input id="fn" type="text" name="Firstname"
                 value="" placeholder="First name"
@@ -93,8 +92,7 @@
                 </datalist>
             </p>
             <p style="text-align:center;">
-                <input type="image" alt="Submit"
-                src='http://www.clker.com/cliparts/2/G/4/v/K/E/submit-hi.png'
+                <input type="submit"  name="submit" src='http://www.clker.com/cliparts/2/G/4/v/K/E/submit-hi.png'
                 width="100" height="48">
             </p>
         </form>
@@ -173,13 +171,9 @@
         </script>
         <!-- AJAX requesting function for a dropdown field using JSON array elements -->
         <script>
-        var dataList = document.getElementById('json-datalist');
-        var input = document.getElementById('rc');
         $.get('list.json').done(function (data) {
         	                                      data.forEach(function(item) {
-        	                                      var option = document.createElement('option');
-        	                                      option.value = item;
-        	                                      dataList.appendChild(option);
+        	                                      $("#json-datalist").append($("<option>").append(item));
         	                                      });
                                      		});
          
